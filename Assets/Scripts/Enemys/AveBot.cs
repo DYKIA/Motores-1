@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AveBot : MonoBehaviour
+public class AveBot : EnemyChase
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        // Patrullar();
+        //sacar distancia entre pj y este enemy, pasarsela arriba a patrullar
+    }
+    public override void TakeDamage(float damage)
+    {
+      
+    }
+    public override void Chase()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Patrullar(float distance)
     {
-        
+
     }
 }

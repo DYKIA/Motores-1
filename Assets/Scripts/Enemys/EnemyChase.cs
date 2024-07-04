@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyChase : MonoBehaviour
+public abstract class EnemyChase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float ActualLife;
+    public float MaxLife;
+    public float RadiousVision;
+    public float Speed;
+    public float Damage;
+    public float Distance;
+    //  public Jugador Jugador;
+
+    public virtual void TakeDamage(float damage)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Chase()
     {
-        
+
     }
 }

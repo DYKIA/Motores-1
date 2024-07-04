@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KamikazeRock : MonoBehaviour
+public class KamikazeRock : EnemyChase
 {
-    // Start is called before the first frame update
-    void Start()
+    float DeathTimer;
+    public override void Chase()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
