@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //public Player player;  // Referencia al jugador
+    //TP2 - Giuliano Acosta
+    public Jugador player;  // Referencia al jugador
     private int killsWinCount;  // Número de enemigos que deben ser eliminados para ganar
     private int currentKills;  // Contador de eliminaciones actuales
 

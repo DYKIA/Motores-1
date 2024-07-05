@@ -4,35 +4,37 @@ using UnityEngine;
 
 public class PowerUp_1 : PowerUp
 {
-    public float shieldDuration;
+    //TP2 - Giuliano Acosta
+    public float shieldDuration; // Duración del escudo en segundos
+    private bool isShieldActive = false; // Estado del escudo activo
+    public float shieldStrength; // Fuerza del escudo (cantidad de daño absorbido)
 
-
-    /*  public override void Activate()
+    public override void Activate()
     {
         if (!isCooldown)
         {
-            Debug.Log("Shield Activated");
-            player.ActivateShield(shieldDuration);
+            StartCoroutine(ActivateShield());
             StartCoroutine(CooldownRoutine());
         }
     }
 
-   
-    public override void Deactivate()
+    IEnumerator ActivateShield()
     {
+        isCooldown = true; // Inicia el cooldown
+
+        Debug.Log("Shield Activated");
+
+        // Proteger al jugador mientras el escudo esté activo
+       // player.isShielded = true;
+
+        yield return new WaitForSeconds(shieldDuration); // Espera la duración del escudo
+
         Debug.Log("Shield Deactivated");
-        player.DeactivateShield();
-    }
 
-   
-    
-    private IEnumerator CooldownRoutine()
-    {
-        isCooldown = true;
-        yield return new WaitForSeconds(cooldownDuration);
-        isCooldown = false;
+        // Desproteger al jugador
+        //player.isShielded = false;
+        isShieldActive = false;
+        isCooldown = false; // Finaliza el cooldown
     }
-
-    */
 
 }

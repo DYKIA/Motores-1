@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class PowerUp_3 : PowerUp
 {
-    public float newSpeed;
-
-   /* public override void Activate()
-    {
-        if (!isCooldown)
+    //TP2 - Giuliano Acosta
+    public GameObject bulletPrefab; // Prefab de la bala
+    public Transform firePoint; // Punto desde donde se dispara la bala
+    public float bulletSpeed; // Velocidad de la bala
+    public float bulletLifeTime = 2.0f; // Tiempo de vida de la bala en segundos
+    public override void Activate()
+     {
+         if (!isCooldown)
         {
-            Debug.Log("Speed Boost Activated");
-            player.SetSpeed(newSpeed);
+            Debug.Log("Shoot Activated");
+            Shoot();
             StartCoroutine(CooldownRoutine());
-        }
-    }
-
-    public override void Deactivate()
+         }
+     }
+    private void Shoot()
     {
-        Debug.Log("Speed Boost Deactivated");
-        player.ResetSpeed();
+        // Instancia la bala en la posición y rotación del punto de disparo
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        // Obtiene el componente Rigidbody de la bala y aplica la fuerza
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = firePoint.forward * bulletSpeed;
+        }
+        // Destruir la bala después de un tiempo
+        Destroy(bullet, bulletLifeTime);
     }
 
     private IEnumerator CooldownRoutine()
@@ -27,7 +38,7 @@ public class PowerUp_3 : PowerUp
         isCooldown = true;
         yield return new WaitForSeconds(cooldownDuration);
         isCooldown = false;
-        Deactivate();
     }
-    */
+
+
 }
