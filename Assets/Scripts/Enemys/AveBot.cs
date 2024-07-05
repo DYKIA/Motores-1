@@ -1,25 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AveBot : EnemyChase
+public class AveBot : EnemyChase // Arraigada Gonzalo
 {
-    private void Update()
-    {
-        // Patrullar();
-        //sacar distancia entre pj y este enemy, pasarsela arriba a patrullar
-    }
-    public override void TakeDamage(float damage)
-    {
-      
-    }
-    public override void Chase()
-    {
+    public float diveSpeed = 10f;
 
+    private bool diving = false;
+
+    protected override void Update()
+    {
+        if (CanSeePlayer() && !diving)
+        {
+            diving = true;
+            Dive();
+        }
+
+        if (diving)
+        {
+            ContinueDive();
+        }
     }
 
-    private void Patrullar(float distance)
-    {
+    private void Dive() // movimiento de lanzarse sobre el jugador
+    {       
+        Vector3 direction = (player.position - transform.position).normalized;
+        GetComponent<Rigidbody>().velocity = direction * diveSpeed;
+    }
 
+    private void ContinueDive() // ir hacia el jugador
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        GetComponent<Rigidbody>().velocity = direction * diveSpeed;
+    }
+
+    protected override void OnTriggerEnter(Collider other)
+    {       
+        if (other.CompareTag("PlayerFeet")) //supuesto pie del jugador
+        {
+            Die();
+        }
+    }
+
+    protected override void Die()
+    {
+        Destroy(gameObject);
     }
 }
