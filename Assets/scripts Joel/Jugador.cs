@@ -4,9 +4,8 @@ using UnityEngine;
 using Movement;
 
 //TP2 - Joel Isaac Jiménez
-public abstract class Jugador : Controller, IMovement
+public class Jugador : Controller, IMovement
 {
-    public float speed;
     public float life;
 
     private Transform target;
