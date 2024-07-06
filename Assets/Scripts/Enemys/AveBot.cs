@@ -3,41 +3,66 @@ using UnityEngine;
 public class AveBot : EnemyChase // Arraigada Gonzalo
 {
     public float diveSpeed = 10f;
+    public float flightRangeX = 5f;
+    public float flightRangeY = 3f;
 
+    private Vector3 initialPosition;
     private bool diving = false;
+    private Vector3 diveTarget;
+
+    protected override void Start()
+    {
+        base.Start();
+        initialPosition = transform.position;
+    }
 
     protected override void Update()
     {
-        if (CanSeePlayer() && !diving)
+        if (!diving)
         {
-            diving = true;
+            if (CanSeePlayer())
+            {
+                diving = true;
+                diveTarget = player.position;
+            }
+            else
+            {
+                FlyRandomly();
+            }
+        }
+        else
+        {
             Dive();
         }
-
-        if (diving)
-        {
-            ContinueDive();
-        }
     }
 
-    private void Dive() // movimiento de lanzarse sobre el jugador
-    {       
-        Vector3 direction = (player.position - transform.position).normalized;
-        GetComponent<Rigidbody>().velocity = direction * diveSpeed;
-    }
-
-    private void ContinueDive() // ir hacia el jugador
+    private void FlyRandomly()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
-        GetComponent<Rigidbody>().velocity = direction * diveSpeed;
+        float newX = initialPosition.x + Mathf.PingPong(Time.time * Speed, flightRangeX) - flightRangeX / 2;
+        float newY = initialPosition.y + Mathf.PingPong(Time.time * Speed, flightRangeY) - flightRangeY / 2;
+        float newZ = initialPosition.z + Mathf.PingPong(Time.time * Speed, flightRangeX) - flightRangeX / 2; 
+        transform.position = new Vector3(newX, newY, newZ);
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {       
-        if (other.CompareTag("PlayerFeet")) //supuesto pie del jugador
+
+    private void Dive()
+    {
+        Vector3 direction = (diveTarget - transform.position).normalized;
+        transform.position += direction * diveSpeed * Time.deltaTime;
+
+        if (transform.position.y <= diveTarget.y || transform.position.y <= 0)
         {
             Die();
         }
+    }
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerFeet") || other.CompareTag("Ground"))
+        {
+            Die();
+        }
+      
     }
 
     protected override void Die()
