@@ -24,6 +24,10 @@ public class Jugador : Controller, IMovement
     private PowerUp[] powerUps;
     private int selectedPowerUpIndex = 0;
 
+    // Delegate y evento para notificar la activación de un PowerUp
+    public delegate void PowerUpActivatedHandler(PowerUpType powerUpType);
+    public event PowerUpActivatedHandler OnPowerUpActivated;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -94,7 +98,12 @@ public class Jugador : Controller, IMovement
         // Método para verificar si el jugador está en el suelo
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
-
+   
+    // Método para invocar el evento de activación de PowerUp
+    public void ActivatePowerUp(PowerUpType powerUpType)
+    {
+        OnPowerUpActivated?.Invoke(powerUpType);
+    }
 
 
 

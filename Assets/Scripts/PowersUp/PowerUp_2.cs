@@ -8,10 +8,17 @@ public class PowerUp_2 : PowerUp
     public float dashDistance;
     public float dashDuration;
 
+
+    private void Awake()
+    {
+        powerUpType = PowerUpType.Dash;
+    }
+
     public override void Activate()
     {
         if (!isCooldown)
         {
+            player.ActivatePowerUp(powerUpType);
             Debug.Log("Dash Activated");
             StartCoroutine(Dash());
             StartCoroutine(CooldownRoutine());

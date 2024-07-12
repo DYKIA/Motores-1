@@ -9,10 +9,15 @@ public class PowerUp_1 : PowerUp
     private bool isShieldActive = false; // Estado del escudo activo
     public float shieldStrength; // Fuerza del escudo (cantidad de daño absorbido)
 
+    private void Awake()
+    {
+        powerUpType = PowerUpType.Shield;
+    }
     public override void Activate()
     {
         if (!isCooldown)
         {
+            player.ActivatePowerUp(powerUpType);
             StartCoroutine(ActivateShield());
             StartCoroutine(CooldownRoutine());
         }
