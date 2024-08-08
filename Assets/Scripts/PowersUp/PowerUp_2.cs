@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp_2 : PowerUp
 {
-    //TP2 - Giuliano Acosta
+   
     public float dashDistance;
     public float dashDuration;
 

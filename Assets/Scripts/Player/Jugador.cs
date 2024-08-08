@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Movement;
-
-//TP2 - Joel Isaac Jiménez
 public class Jugador : Controller, IMovement
 {
     public float life;
 
     private Transform target;
 
-   
-
-    // Implementación de las propiedades de IMovement
+ 
+    // Implementación de las propiedades de la interface IMovement
     public float jumpForce { get; set; }
     public Rigidbody rb { get; set; }
     public float move { get; set; }
@@ -29,9 +26,6 @@ public class Jugador : Controller, IMovement
         rb = GetComponent<Rigidbody>();
         jumpForce = 5.0f; // Salto
 
-
-        //TP2 - Giuliano Acosta
-        // Inicializa los power-ups
         powerUps = GetComponentsInChildren<PowerUp>();
         foreach (var powerUp in powerUps)
         {
@@ -54,8 +48,6 @@ public class Jugador : Controller, IMovement
             Jump();
         }
 
-        //TP2 - Giuliano Acosta
-        // Selección de power-up con teclas numéricas
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedPowerUpIndex = 0;

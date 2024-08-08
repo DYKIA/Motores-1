@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp_3 : PowerUp
 {
-    //TP2 - Giuliano Acosta
+    
     public GameObject bulletPrefab; // Prefab de la bala
     public Transform firePoint; // Punto desde donde se dispara la bala
     public float bulletSpeed; // Velocidad de la bala

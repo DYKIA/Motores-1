@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Plataforma : Jugador
-{
-    //TP2 - Giuliano Acosta
+{ 
     public float moveSpeed = 2.0f; // Velocidad de movimiento de la plataforma
     public float moveDistance = 5.0f; // Distancia total que recorre la plataforma
 

@@ -5,8 +5,6 @@ using UnityEngine;
 public class Camara : MonoBehaviour
 {
 
-    //TP2 - Giuliano Acosta
-
     public Transform player; // Referencia al transform del jugador
     public Vector3 offset; // Desplazamiento de la cámara respecto al jugador
     public float smoothSpeed = 0.125f; // Velocidad de suavizado
