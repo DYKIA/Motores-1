@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Movement;
+
 public class Jugador : Controller, IMovement
 {
     public float life;
 
-    private Transform target;
-
- 
     // Implementación de las propiedades de la interface IMovement
     public float jumpForce { get; set; }
     public Rigidbody rb { get; set; }
@@ -17,7 +15,6 @@ public class Jugador : Controller, IMovement
     private PowerUp[] powerUps;
     private int selectedPowerUpIndex = 0;
 
-    // Delegate y evento para notificar la activación de un PowerUp
     public delegate void PowerUpActivatedHandler(PowerUpType powerUpType);
     public event PowerUpActivatedHandler OnPowerUpActivated;
 
@@ -29,19 +26,16 @@ public class Jugador : Controller, IMovement
         powerUps = GetComponentsInChildren<PowerUp>();
         foreach (var powerUp in powerUps)
         {
-            powerUp.Initialize(this); // Pasa una referencia del jugador al power-up
+            powerUp.Initialize(this); // referencia del jugador al power-up
         }
 
-       
+      
+        mainCamera = Camera.main; 
     }
-
-
-
 
     private void Update()
     {
         InputController();
-
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -64,14 +58,11 @@ public class Jugador : Controller, IMovement
             Debug.Log(" PowerUp 3");
         }
 
-        // Activación de power-up con tecla F
         if (Input.GetKeyDown(KeyCode.F) && selectedPowerUpIndex != -1 && selectedPowerUpIndex < powerUps.Length)
         {
             powerUps[selectedPowerUpIndex].Activate();
         }
-
     }
-
 
     private void Jump()
     {
@@ -83,19 +74,16 @@ public class Jugador : Controller, IMovement
 
     private bool IsGrounded()
     {
-        // Método para verificar si el jugador está en el suelo
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
-   
-    // Método para invocar el evento de activación de PowerUp
+
     public void ActivatePowerUp(PowerUpType powerUpType)
     {
         OnPowerUpActivated?.Invoke(powerUpType);
     }
 
-
-
-
+    protected override void Move(Vector3 direction)
+    {
+        transform.position += direction * speed * Time.deltaTime;
+    }
 }
-
-

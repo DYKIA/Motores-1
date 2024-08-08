@@ -1,14 +1,28 @@
-
 using UnityEngine;
-using Movement;
-public class ArenaMovediza : Jugador, IMovement
+
+public class ArenaMovediza : MonoBehaviour
 {
     private void OnCollisionStay(Collision collision)
     {
-        speed -= 2;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Jugador player = collision.gameObject.GetComponent<Jugador>();
+            if (player != null)
+            {
+                player.speed -= 2;
+            }
+        }
     }
+
     private void OnCollisionExit(Collision collision)
     {
-        speed += 2;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Jugador player = collision.gameObject.GetComponent<Jugador>();
+            if (player != null)
+            {
+                player.speed += 2;
+            }
+        }
     }
 }

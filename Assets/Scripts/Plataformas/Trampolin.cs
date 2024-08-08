@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trampolin : Jugador
+public class Trampolin : MonoBehaviour
 {
     public float bounceForce;
 
@@ -10,13 +10,13 @@ public class Trampolin : Jugador
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            BouncePlayer();
+            BouncePlayer(collision.gameObject.GetComponent<Rigidbody>());
         }
     }
 
-    void BouncePlayer()
+    void BouncePlayer(Rigidbody playerRb)
     {
         // Aplica una fuerza de impulso al jugador cuando colisiona con el trampolín
-        rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+        playerRb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
     }
 }
