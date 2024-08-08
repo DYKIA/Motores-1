@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Movement;
 
-//TP2 - Joel Isaac Jiménez
 public abstract class Controller : MonoBehaviour
 {
     public float speed;

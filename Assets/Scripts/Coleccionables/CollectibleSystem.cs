@@ -20,13 +20,13 @@ public class CollectibleSystem : MonoBehaviour
 
         foreach (var collectible in collectibles)
         {
-            CreateCollectible(collectible);
+            CreateCollectible(collectible); // creo los coleccionables 
         }
 
         playerPoints = 0;
     }
 
-    void CreateCollectible(Collectible collectible)
+    void CreateCollectible(Collectible collectible) // metodo q crea los coleccionables
     {
 
         GameObject collectibleObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);

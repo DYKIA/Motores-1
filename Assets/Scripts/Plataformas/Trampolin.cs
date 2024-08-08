@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Trampolin : Jugador
 {
-    //TP2 - Giuliano Acosta
     public float bounceForce;
 
     void OnCollisionEnter(Collision collision)
