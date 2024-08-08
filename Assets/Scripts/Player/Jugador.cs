@@ -10,11 +10,7 @@ public class Jugador : Controller, IMovement
 
     private Transform target;
 
-    /* public float jumpForce { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-     public Rigidbody rb { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-     public float move { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
-     */
+   
 
     // Implementación de las propiedades de IMovement
     public float jumpForce { get; set; }

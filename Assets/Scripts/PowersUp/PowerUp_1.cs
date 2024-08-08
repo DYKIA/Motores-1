@@ -26,6 +26,7 @@ public class PowerUp_1 : PowerUp
     IEnumerator ActivateShield()
     {
         isCooldown = true; // Inicia el cooldown
+        isShieldActive = true;
 
         Debug.Log("Shield Activated");
 
@@ -34,7 +35,7 @@ public class PowerUp_1 : PowerUp
 
         yield return new WaitForSeconds(shieldDuration); // Espera la duración del escudo
 
-        Debug.Log("Shield Deactivated");
+        Debug.Log("Shield Desactivated");
 
         // Desproteger al jugador
         //player.isShielded = false;

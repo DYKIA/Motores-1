@@ -39,12 +39,7 @@ public class PowerUp_3 : PowerUp
         Destroy(bullet, bulletLifeTime);
     }
 
-    private IEnumerator CooldownRoutine()
-    {
-        isCooldown = true;
-        yield return new WaitForSeconds(cooldownDuration);
-        isCooldown = false;
-    }
+    
 
 
 }
