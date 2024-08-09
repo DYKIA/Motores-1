@@ -8,7 +8,7 @@ public class Trampolin : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.GetComponent<Jugador>())
         {
             BouncePlayer(collision.gameObject.GetComponent<Rigidbody>());
         }

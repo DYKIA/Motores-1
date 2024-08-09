@@ -56,7 +56,7 @@ public abstract class EnemyChase : MonoBehaviour // Arraigada Gonzalo
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.GetComponent<Jugador>())
         {
             other.GetComponent<Jugador>().TakeDamage(Damage);
             Die();

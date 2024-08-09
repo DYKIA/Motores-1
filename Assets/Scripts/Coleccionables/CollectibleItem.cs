@@ -11,7 +11,7 @@ public class CollectibleItem : MonoBehaviour  //codigo q tendran los items dentr
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.GetComponent<Jugador>())
         {
             //Debug.Log("Collected: " + collectible.name);
             FindObjectOfType<CollectibleSystem>().CollectItem(collectible);

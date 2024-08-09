@@ -62,7 +62,7 @@ public class AveBot : EnemyChase // Arraigada Gonzalo
         {
             Die();
         }
-        else if (other.CompareTag("Player"))
+        else if (other.gameObject.GetComponent<Jugador>())
         {
             other.GetComponent<Jugador>().TakeDamage(Damage);
             Die();

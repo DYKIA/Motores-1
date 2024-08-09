@@ -4,7 +4,7 @@ public class ArenaMovediza : MonoBehaviour
 {
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.GetComponent<Jugador>())
         {
             Jugador player = collision.gameObject.GetComponent<Jugador>();
             if (player != null)
@@ -16,7 +16,7 @@ public class ArenaMovediza : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.GetComponent<Jugador>())
         {
             Jugador player = collision.gameObject.GetComponent<Jugador>();
             if (player != null)

@@ -44,7 +44,7 @@ public class KamikazeRock : EnemyChase // Arraigada Gonzalo
 
     protected override void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isExploding)
+        if (other.gameObject.GetComponent<Jugador>() && !isExploding)
         {
             StartCoroutine(ExplodeAfterDelay());
         }
@@ -56,7 +56,7 @@ public class KamikazeRock : EnemyChase // Arraigada Gonzalo
 
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Player"))
+            if (collider.gameObject.GetComponent<Jugador>())
             {
                 collider.GetComponent<Jugador>().TakeDamage(ExplosionDamage);
             }
