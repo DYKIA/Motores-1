@@ -12,9 +12,9 @@ public class CollectibleSystem : MonoBehaviour
 
         collectibles = new List<Collectible> //seteo posicion y valor de los 3 items :p
         {
-            new Collectible("Coin", new Vector3(1, 0, 1), 10),
-            new Collectible("Gem", new Vector3(2, 0, 2), 50),
-            new Collectible("Star", new Vector3(3, 0, 3), 100)
+            new Collectible("Coin", new Vector3(-15, 6, 55), 10),
+            new Collectible("Gem", new Vector3(-30, 8, -21), 50),
+            new Collectible("Star", new Vector3(17, 11, -26), 100)
         };
 
 
