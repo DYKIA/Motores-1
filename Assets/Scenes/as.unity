@@ -1581,8 +1581,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1165695, y: 0.47262764, z: 1.1165695}
-  m_Center: {x: 0, y: -0.8168917, z: -0.018348694}
+  m_Size: {x: 1.1165695, y: 0.53084695, z: 1.1165695}
+  m_Center: {x: 0, y: -0.8460013, z: -0.018348694}
 --- !u!1 &1393589803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,6 +2702,7 @@ MonoBehaviour:
   gravity: 13
   mainCamera: {fileID: 0}
   life: 100
+  feetCollider: {fileID: 1328457385}
 --- !u!114 &2045660010
 MonoBehaviour:
   m_ObjectHideFlags: 0
