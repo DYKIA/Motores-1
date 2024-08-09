@@ -6,8 +6,8 @@ using Movement;
 public class Jugador : Controller, IMovement
 {
     public float life;
-
-    // Implementación de las propiedades de la interface IMovement
+    
+    //implementacion interface IMovement
     public float jumpForce { get; set; }
     public Rigidbody rb { get; set; }
     public float move { get; set; }
@@ -18,17 +18,19 @@ public class Jugador : Controller, IMovement
     public delegate void PowerUpActivatedHandler(PowerUpType powerUpType);
     public event PowerUpActivatedHandler OnPowerUpActivated;
 
+    public Collider feetCollider;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jumpForce = 5.0f; // Salto
+        feetCollider = GetComponentInChildren<Collider>();
+        jumpForce = 5.0f;
 
         powerUps = GetComponentsInChildren<PowerUp>();
         foreach (var powerUp in powerUps)
         {
-            powerUp.Initialize(this); // referencia del jugador al power-up
+            powerUp.Initialize(this);
         }
-
 
         mainCamera = Camera.main;
     }
@@ -74,7 +76,7 @@ public class Jugador : Controller, IMovement
 
     private bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        return Physics.Raycast(feetCollider.bounds.center, Vector3.down, feetCollider.bounds.extents.y + 0.1f);
     }
 
     public void ActivatePowerUp(PowerUpType powerUpType)
