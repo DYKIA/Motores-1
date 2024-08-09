@@ -532,7 +532,7 @@ MonoBehaviour:
   MaxLife: 100
   RadiusVision: 20
   Speed: 4
-  Damage: 15
+  Damage: 20
   diveSpeed: 10
   flightRangeX: 5
   flightRangeY: 3
@@ -551,7 +551,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -623,7 +623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &454081873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1530,6 +1530,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1328457383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328457384}
+  - component: {fileID: 1328457385}
+  m_Layer: 3
+  m_Name: Feet
+  m_TagString: PlayerFeet
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1328457384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328457383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2045660007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1328457385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328457383}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1165695, y: 0.47262764, z: 1.1165695}
+  m_Center: {x: 0, y: -0.8168917, z: -0.018348694}
 --- !u!1 &1393589803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +2033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1689228425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,7 +2050,7 @@ MonoBehaviour:
   MaxLife: 100
   RadiusVision: 20
   Speed: 7
-  Damage: 15
+  Damage: 20
   moveDistance: 5
 --- !u!135 &1689228426
 SphereCollider:
@@ -2014,7 +2067,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2079,7 +2132,7 @@ Transform:
   m_GameObject: {fileID: 1689228424}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.70222, y: 22.94955, z: -0.65099716}
+  m_LocalPosition: {x: 12.91, y: 22.94955, z: -67.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2402,7 +2455,7 @@ MonoBehaviour:
   MaxLife: 100
   RadiusVision: 20
   Speed: 4
-  Damage: 15
+  Damage: 0
   diveSpeed: 10
   flightRangeX: 5
   flightRangeY: 3
@@ -2535,10 +2588,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.5016734
+  m_Height: 2.0119324
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.0059661865, z: 0}
 --- !u!23 &2045660005
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2603,6 +2656,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1248960121}
+  - {fileID: 1328457384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2045660008
@@ -2717,7 +2771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2048856122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,9 +2788,9 @@ MonoBehaviour:
   MaxLife: 100
   RadiusVision: 20
   Speed: 5
-  Damage: 10
+  Damage: 25
   ExplosionRadius: 10
-  ExplosionDamage: 50
+  ExplosionDamage: 20
   ExplosionDelay: 2
 --- !u!135 &2048856123
 SphereCollider:
@@ -2818,7 +2872,7 @@ Transform:
   m_GameObject: {fileID: 2048856121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.50222, y: 22.94955, z: -0.65099716}
+  m_LocalPosition: {x: 28.17, y: 22.94955, z: -68.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
