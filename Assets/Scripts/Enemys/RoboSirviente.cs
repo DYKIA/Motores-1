@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RoboSirviente : EnemyChase // Arraigada Gonzalo
 {
-    public float moveDistance = 5f; 
+    public float moveDistance = 5f;
     private bool movingLeft = true;
     private float leftBoundary;
     private float rightBoundary;
@@ -26,7 +26,7 @@ public class RoboSirviente : EnemyChase // Arraigada Gonzalo
         }
     }
 
-    private void MoveLeftRight()
+    private void MoveLeftRight() //comportamiento normal
     {
         if (movingLeft)
         {
@@ -52,11 +52,5 @@ public class RoboSirviente : EnemyChase // Arraigada Gonzalo
         transform.Translate(direction * Speed * Time.deltaTime);
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {          
-            // other.GetComponent<Jugador>().TakeDamage(Damage);
-        }
-    }
+   
 }

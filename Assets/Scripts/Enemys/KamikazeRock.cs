@@ -4,8 +4,8 @@ using System.Collections;
 public class KamikazeRock : EnemyChase // Arraigada Gonzalo
 {
     public float ExplosionRadius = 5f;
-    public float ExplosionDamage = 50f;
-    public float ExplosionDelay = 2.5f; 
+    public int ExplosionDamage = 20;
+    public float ExplosionDelay = 2.5f;
 
     private bool activated = false;
     private bool isExploding = false;
@@ -38,7 +38,7 @@ public class KamikazeRock : EnemyChase // Arraigada Gonzalo
     {
         Debug.Log("SUICIDIO INMINENTE NOOOOO");
         isExploding = true;
-        yield return new WaitForSeconds(ExplosionDelay);
+        yield return new WaitForSeconds(ExplosionDelay); //2.5s
         Explode();
     }
 
@@ -58,10 +58,10 @@ public class KamikazeRock : EnemyChase // Arraigada Gonzalo
         {
             if (collider.CompareTag("Player"))
             {
-                // collider.GetComponent<Jugador>().TakeDamage(ExplosionDamage);
+                collider.GetComponent<Jugador>().TakeDamage(ExplosionDamage);
             }
         }
 
-        Destroy(gameObject);
+        Die();
     }
 }

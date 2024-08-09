@@ -40,7 +40,7 @@ public class AveBot : EnemyChase // Arraigada Gonzalo
     {
         float newX = initialPosition.x + Mathf.PingPong(Time.time * Speed, flightRangeX) - flightRangeX / 2;
         float newY = initialPosition.y + Mathf.PingPong(Time.time * Speed, flightRangeY) - flightRangeY / 2;
-        float newZ = initialPosition.z + Mathf.PingPong(Time.time * Speed, flightRangeX) - flightRangeX / 2; 
+        float newZ = initialPosition.z + Mathf.PingPong(Time.time * Speed, flightRangeX) - flightRangeX / 2;
         transform.position = new Vector3(newX, newY, newZ);
     }
 
@@ -62,11 +62,13 @@ public class AveBot : EnemyChase // Arraigada Gonzalo
         {
             Die();
         }
-      
+        else if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Jugador>().TakeDamage(Damage);
+            Die();
+        }
+        
+
     }
 
-    protected override void Die()
-    {
-        Destroy(gameObject);
-    }
 }

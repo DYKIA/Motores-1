@@ -29,8 +29,8 @@ public class Jugador : Controller, IMovement
             powerUp.Initialize(this); // referencia del jugador al power-up
         }
 
-      
-        mainCamera = Camera.main; 
+
+        mainCamera = Camera.main;
     }
 
     private void Update()
@@ -85,5 +85,11 @@ public class Jugador : Controller, IMovement
     protected override void Move(Vector3 direction)
     {
         transform.position += direction * speed * Time.deltaTime;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        life -= damage;
+        Debug.Log("pj recibio damage, quedan " + life + " de vida");
     }
 }

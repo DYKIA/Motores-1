@@ -1,12 +1,12 @@
 using UnityEngine;
 
 public abstract class EnemyChase : MonoBehaviour // Arraigada Gonzalo
-{ 
+{
     public float ActualLife;
-    public float MaxLife = 100f; 
+    public float MaxLife = 100f;
     public float RadiusVision;
     public float Speed;
-    public float Damage;
+    public int Damage;
 
     protected Transform player; // Referencia al jugador
 
@@ -14,7 +14,6 @@ public abstract class EnemyChase : MonoBehaviour // Arraigada Gonzalo
     {
         ActualLife = MaxLife;
 
-      
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -59,7 +58,8 @@ public abstract class EnemyChase : MonoBehaviour // Arraigada Gonzalo
     {
         if (other.CompareTag("Player"))
         {
-            // other.GetComponent<Jugador>().TakeDamage(Damage); //mandar damage al player
+            other.GetComponent<Jugador>().TakeDamage(Damage);
+            Die();
         }
     }
 }
