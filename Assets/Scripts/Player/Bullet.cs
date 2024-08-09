@@ -7,11 +7,13 @@ public class Bullet : MonoBehaviour
     public float speed;
     private Transform target;
     public int DeathCD;
+    public EnemyChase enemy;
 
     void Start()
     {
         FindClosestEnemy();
         StartCoroutine(CooldownRoutine());
+        
     }
 
     void Update()
@@ -46,5 +48,21 @@ public class Bullet : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        EnemyChase enemy = other.gameObject.GetComponent<EnemyChase>();
+        if (enemy != null)
+        {
+            Debug.Log("bala mando daño");
+            float damage = 20;
+            enemy.TakeDamage(damage);
+        }
+        else
+        {
+            Debug.Log("no colisiona con enemigo");
+            Destroy(this.gameObject);
+        }
     }
 }
