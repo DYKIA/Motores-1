@@ -80,7 +80,7 @@ public class Jugador : Controller, IMovement
         return Physics.Raycast(feetCollider.bounds.center, Vector3.down, feetCollider.bounds.extents.y + 0.1f);
     }
 
-    public void ActivatePowerUp(PowerUpType powerUpType)
+    public void ActivatePowerUp(PowerUpType powerUpType) // para los power up 
     {
         OnPowerUpActivated?.Invoke(powerUpType);
     }

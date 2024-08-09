@@ -9,7 +9,7 @@ public abstract class Controller : MonoBehaviour
 
     public Camera mainCamera;
 
-    protected abstract void Move(Vector3 direction);
+    protected abstract void Move(Vector3 direction); // le va a jugador cuando herede controller
 
     public void InputController()
     {
