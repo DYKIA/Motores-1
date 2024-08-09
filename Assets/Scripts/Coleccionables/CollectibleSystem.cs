@@ -5,7 +5,7 @@ public class CollectibleSystem : MonoBehaviour
 {
     private List<Collectible> collectibles;
 
-    private int playerPoints;
+    public int playerPoints;
 
     void Start()
     {

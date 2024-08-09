@@ -22,7 +22,7 @@ public abstract class Controller : MonoBehaviour
         if (mainCamera != null)
         {
             move = mainCamera.transform.TransformDirection(move);
-            move.y = 0; // Opcional, dependiendo si deseas mover en el eje Y
+            move.y = 0; 
         }
 
         Move(move);
