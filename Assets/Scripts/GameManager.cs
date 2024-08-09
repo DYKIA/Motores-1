@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//TP-Final Fernando Nogueira
 public class GameManager : MonoBehaviour
 {
     public Jugador player;

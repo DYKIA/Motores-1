@@ -1,6 +1,7 @@
 using UnityEngine;
 using Movement;
 
+//TP-Final Arraigada Gonzalo
 public class Jugador : Controller, IMovement
 {
     public float life;

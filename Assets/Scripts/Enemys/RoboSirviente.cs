@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RoboSirviente : EnemyChase // Arraigada Gonzalo
+public class RoboSirviente : EnemyChase //TP-Final Sayuri Ganiko
 {
     public float moveDistance = 5f;
     private bool movingLeft = true;

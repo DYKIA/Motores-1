@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//TP-Final Arraigada Gonzalo
 public class CollectibleItem : MonoBehaviour  //codigo q tendran los items dentro
 {    
     private Collectible collectible;

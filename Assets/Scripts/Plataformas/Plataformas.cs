@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//TP-Final Fernando Nogueira
 public class Plataforma : MonoBehaviour
 {
     public float moveSpeed = 2.0f; // Velocidad de movimiento de la plataforma

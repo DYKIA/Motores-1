@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawnenemys : MonoBehaviour  //Santiago Da Valinha Lopes
+public class Spawnenemys : MonoBehaviour  //TP-Final Fernando Nogueira
 {
     private Dictionary<GameObject, float> enemyDictionary = new Dictionary<GameObject, float>();
 

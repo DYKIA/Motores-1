@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AveBot : EnemyChase // Arraigada Gonzalo
+public class AveBot : EnemyChase //TP-Final Sayuri Ganiko
 {
     public float diveSpeed = 10f;
     public float flightRangeX = 5f;

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+//TP-Final Arraigada Gonzalo
 public class CollectibleSystem : MonoBehaviour
 {
     private List<Collectible> collectibles;

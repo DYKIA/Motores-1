@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//TP-Final Arraigada Gonzalo
 public class ArenaMovediza : MonoBehaviour
 {
     public Jugador jugador;

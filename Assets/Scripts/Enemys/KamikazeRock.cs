@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class KamikazeRock : EnemyChase // Arraigada Gonzalo
+public class KamikazeRock : EnemyChase //TP-Final Sayuri Ganiko
 {
     public float ExplosionRadius = 5f;
     public int ExplosionDamage = 20;

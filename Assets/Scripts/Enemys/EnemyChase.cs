@@ -1,6 +1,6 @@
 using UnityEngine;
-
-public abstract class EnemyChase : MonoBehaviour // Arraigada Gonzalo
+//TP-Final Sayuri Ganiko
+public abstract class EnemyChase : MonoBehaviour 
 {
     public float ActualLife;
     public float MaxLife = 100f;
