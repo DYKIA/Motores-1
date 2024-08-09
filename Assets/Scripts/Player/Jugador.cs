@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Movement;
 
 public class Jugador : Controller, IMovement
 {
     public float life;
-    
+
     //implementacion interface IMovement
     public float jumpForce { get; set; }
     public Rigidbody rb { get; set; }
@@ -14,6 +12,7 @@ public class Jugador : Controller, IMovement
 
     private PowerUp[] powerUps;
     private int selectedPowerUpIndex = 0;
+    public bool isShielded;
 
     public delegate void PowerUpActivatedHandler(PowerUpType powerUpType);
     public event PowerUpActivatedHandler OnPowerUpActivated;
@@ -23,7 +22,6 @@ public class Jugador : Controller, IMovement
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        feetCollider = GetComponentInChildren<Collider>();
         jumpForce = 5.0f;
 
         powerUps = GetComponentsInChildren<PowerUp>();
@@ -64,6 +62,8 @@ public class Jugador : Controller, IMovement
         {
             powerUps[selectedPowerUpIndex].Activate();
         }
+
+
     }
 
     private void Jump()
@@ -91,7 +91,14 @@ public class Jugador : Controller, IMovement
 
     public void TakeDamage(int damage)
     {
-        life -= damage;
+        if (isShielded == false)
+        {
+            life -= damage;
+        }
+        else
+        {
+            life -= damage / 2;
+        }
         Debug.Log("pj recibio damage, quedan " + life + " de vida");
     }
 }

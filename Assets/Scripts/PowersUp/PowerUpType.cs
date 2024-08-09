@@ -2,7 +2,7 @@ using UnityEngine;
     public enum PowerUpType
     {
         Shield,
-        Dash,
+        SpeedUp,
         Shoot
     }
 

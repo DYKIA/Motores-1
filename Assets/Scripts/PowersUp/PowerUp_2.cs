@@ -1,17 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp_2 : PowerUp
 {
-   
-    public float dashDistance;
-    public float dashDuration;
-
+    public float speedMultiplier = 2.5f;
+    public float powerUpDuration;
 
     private void Awake()
     {
-        powerUpType = PowerUpType.Dash;
+        powerUpType = PowerUpType.SpeedUp;
     }
 
     public override void Activate()
@@ -19,27 +16,18 @@ public class PowerUp_2 : PowerUp
         if (!isCooldown)
         {
             player.ActivatePowerUp(powerUpType);
-            Debug.Log("Dash Activated");
-            StartCoroutine(Dash());
+            StartCoroutine(SpeedBoost());
             StartCoroutine(CooldownRoutine());
         }
     }
 
-    private IEnumerator Dash()
+    private IEnumerator SpeedBoost()
     {
-        Vector3 initialPosition = player.transform.position;
-        Vector3 dashDirection = player.transform.forward;
-        float elapsedTime = 0;
+        float originalSpeed = player.speed;
+        player.speed *= speedMultiplier;
 
-        while (elapsedTime < dashDuration)
-        {
-            player.rb.MovePosition(initialPosition + dashDirection * (dashDistance * (elapsedTime / dashDuration)));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(powerUpDuration);
 
-        player.rb.MovePosition(initialPosition + dashDirection * dashDistance);
+        player.speed = originalSpeed;
     }
-
-
 }

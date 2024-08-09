@@ -25,21 +25,13 @@ public class PowerUp_3 : PowerUp
          }
      }
     private void Shoot()
-    {
-        // Instancia la bala en la posición y rotación del punto de disparo
+    {     
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        // Obtiene el componente Rigidbody de la bala y aplica la fuerza
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = firePoint.forward * bulletSpeed;
-        }
-        // Destruir la bala después de un tiempo
-        Destroy(bullet, bulletLifeTime);
     }
 
-    
+
+
 
 
 }
