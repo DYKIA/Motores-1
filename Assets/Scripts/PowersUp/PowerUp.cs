@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+//TP-Final Santiago Da Valinha
 public abstract class PowerUp : MonoBehaviour
 {
     protected Jugador player; // Referencia al jugador

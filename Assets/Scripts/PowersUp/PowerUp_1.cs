@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//TP-Final Santiago Da Valinha
 public class PowerUp_1 : PowerUp
 {   
     public float shieldDuration; // Duración del escudo en segundos

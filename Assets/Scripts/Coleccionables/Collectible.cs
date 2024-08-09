@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//TP-Final Arraigada Gonzalo
 public struct Collectible
 {
     public string name;

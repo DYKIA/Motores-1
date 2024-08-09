@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+//TP-Final Santiago Da Valinha
 public class PowerUp_2 : PowerUp
 {
     public float speedMultiplier = 2.5f;

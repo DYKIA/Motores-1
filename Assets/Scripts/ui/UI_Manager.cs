@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Manager : MonoBehaviour
+public class UI_Manager : MonoBehaviour //TP-Final Fernando Nogueira
 {
     public Slider healthBar; 
     public Jugador player;
